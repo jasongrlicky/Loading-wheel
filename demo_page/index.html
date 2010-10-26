@@ -63,6 +63,7 @@ canvas {
 		position:relative;
 		top:27px;
 }
+
 </style>
 
 <body>
@@ -77,7 +78,7 @@ canvas {
 
 
 var Spinner = function () {
-		var _max_frames = 36; // number of frames in each spinning animation
+		var _max_frames = 18; // number of frames in each spinning animation
 		var _fade_length = 500; // length of fade between connecting and loading spinners, in ms
 
 		var _ctx; // canvas 2d drawing context, if available
@@ -111,7 +112,7 @@ var Spinner = function () {
 						case 1:
 						// connecting
 								me._clear_draw_interval();
-								_draw_interval = setInterval(me._draw, 27);
+								_draw_interval = setInterval(me._draw, 54);
 
 								me._clear_state_timeout();
 								_state_timeout = setTimeout(me._advance_state, 1500);
@@ -121,7 +122,7 @@ var Spinner = function () {
 								me._clear_state_timeout();
 								_state_timeout = setTimeout(me._advance_state, _fade_length);
 								me._clear_draw_interval();
-								_draw_interval = setInterval(me._draw, 27);
+								_draw_interval = setInterval(me._draw, 54);
 
 								// remember when we started fading
 								var d = new Date();
@@ -132,7 +133,7 @@ var Spinner = function () {
 								me._clear_state_timeout();
 								_state_timeout = setTimeout(me._advance_state, 2000);
 								me._clear_draw_interval();
-								_draw_interval = setInterval(me._draw, 27);
+								_draw_interval = setInterval(me._draw, 54);
 						break;
 						case 4:
 						// end
@@ -195,7 +196,7 @@ var Spinner = function () {
 				if (canvas.getContext) {
 						_ctx = canvas.getContext('2d');
 						_state = 0;
-						_frame = 28;
+						_frame = 12;
 						me._advance_state();
 				}
 		}
